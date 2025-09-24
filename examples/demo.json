@@ -1,0 +1,156 @@
+[
+    {
+        "id": "3a2b26335408eb13",
+        "type": "inject",
+        "z": "04a5e4aa17757948",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 170,
+        "y": 420,
+        "wires": [
+            [
+                "8796d95c2bd66c6a"
+            ]
+        ]
+    },
+    {
+        "id": "8796d95c2bd66c6a",
+        "type": "function",
+        "z": "04a5e4aa17757948",
+        "name": "模拟表日志1",
+        "func": "let logmsg ={\n    logType:'deviceRunInfo',\n    isMulitCmd:true,\n    data:'CMD 0301::::',\n    other:{\n        \"a\":\"1\"\n    }\n}\nlet zlog = global.get(\"zemitter\")\nzlog.emit('zlog',logmsg);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 420,
+        "wires": [
+            [
+                "c7f49646c3cf25de"
+            ]
+        ]
+    },
+    {
+        "id": "c7f49646c3cf25de",
+        "type": "function",
+        "z": "04a5e4aa17757948",
+        "name": "模拟表日志2",
+        "func": "let logmsg ={\n    logType:'deviceRunInfo',\n    isMulitCmd:true,\n    data:'CMD 0301::::',\n    other:{\n        \"a\":\"2\"\n    }\n}\nlet zlog = global.get(\"zemitter\")\nzlog.emit('zlog',logmsg);\nzlog.emit('zmsg',logmsg);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 420,
+        "wires": [
+            [
+                "d8a43791ced5f3e1"
+            ]
+        ]
+    },
+    {
+        "id": "d8a43791ced5f3e1",
+        "type": "function",
+        "z": "04a5e4aa17757948",
+        "name": "模拟表日志3",
+        "func": "let logmsg ={\n    logType:'deviceRunInfo',\n    isMulitCmd:true,\n    data:'CMD 0301::::',\n    other:{\n        \"a\":\"3\"\n    }\n}\nlet zlog = global.get(\"zemitter\")\nzlog.emit('zlog',logmsg);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 810,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "57752235d560a7b6",
+        "type": "zlog",
+        "z": "04a5e4aa17757948",
+        "name": "",
+        "x": 370,
+        "y": 560,
+        "wires": [
+            [
+                "189df28829bbafde"
+            ]
+        ]
+    },
+    {
+        "id": "189df28829bbafde",
+        "type": "debug",
+        "z": "04a5e4aa17757948",
+        "name": "调试 17",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 560,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "3e3afc6faa45777f",
+        "type": "function",
+        "z": "04a5e4aa17757948",
+        "name": "其他消息捕获",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "// 部署节点后，此处添加的代码将运行一次。 \nlet zlog = global.get(\"zemitter\")\nzlog.on('zmsg', function (zmsg) {\n    node.warn(zmsg);\n    node.send(zmsg)\n})",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 500,
+        "wires": [
+            [
+                "97ced004a917144e"
+            ]
+        ]
+    },
+    {
+        "id": "97ced004a917144e",
+        "type": "debug",
+        "z": "04a5e4aa17757948",
+        "name": "调试 15",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 620,
+        "y": 500,
+        "wires": []
+    }
+]

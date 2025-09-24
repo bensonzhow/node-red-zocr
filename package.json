@@ -1,0 +1,39 @@
+{
+  "name": "node-red-zocr",
+  "version": "0.0.3",
+  "description": "node-red zocr node",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bensonzhow/node-red-zocr.git"
+  },
+  "keywords": [
+    "node-red",
+    "node red",
+    "log",
+    "emit event"
+  ],
+  "author": "benson.zhows@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bensonzhow/node-red-zocr#issues"
+  },
+  "homepage": "https://github.com/bensonzhow/node-red-zocr#readme",
+  "engines": {
+    "node": ">=15"
+  },
+  "node-red": {
+    "version": ">=1.3",
+    "nodes": {
+      "zocr": "zocr.js"
+    }
+  },
+  "dependencies": {
+    "request": "^2.88.2",
+    "sharp": "^0.34.4",
+    "tesseract.js": "^6.0.1"
+  }
+}
