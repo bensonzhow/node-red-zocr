@@ -1,6 +1,6 @@
 {
   "name": "node-red-zocr",
-  "version": "0.0.6",
+  "version": "0.0.9",
   "description": "node-red zocr node",
   "main": "index.js",
   "scripts": {
